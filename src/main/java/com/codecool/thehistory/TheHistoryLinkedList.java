@@ -15,30 +15,36 @@ public class TheHistoryLinkedList implements TheHistory {
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
         String[] splitStr = text.split("\\s+");
-        for (String word : splitStr){
-            wordsLinkedList.add(word);
+        Collections.addAll( wordsLinkedList, splitStr);
         }
-    }
 
     @Override
     public void removeWord(String wordToBeRemoved) {
         //TODO: check the TheHistory interface for more information
+        wordsLinkedList.removeIf(wordToBeRemoved::equals);
     }
 
     @Override
     public int size() {
         //TODO: check the TheHistory interface for more information
-        return 0;
+        return wordsLinkedList.size();
     }
 
     @Override
     public void clear() {
         //TODO: check the TheHistory interface for more information
+        wordsLinkedList.clear();
     }
 
     @Override
     public void replaceOneWord(String from, String to) {
         //TODO: check the TheHistory interface for more information
+        ListIterator <String> iterator = wordsLinkedList.listIterator();
+        while (iterator.hasNext()){
+            if(iterator.next().equals(from)){
+                iterator.set(to);
+            }
+        }
     }
 
     @Override
@@ -55,5 +61,4 @@ public class TheHistoryLinkedList implements TheHistory {
         if (sb.length() > 0) sb.deleteCharAt(sb.length() - 1); // last space char
         return sb.toString();
     }
-
 }
