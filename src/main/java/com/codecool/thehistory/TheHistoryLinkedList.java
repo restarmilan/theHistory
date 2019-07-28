@@ -49,6 +49,14 @@ public class TheHistoryLinkedList implements TheHistory {
 
     @Override
     public void replaceMoreWords(String[] fromWords, String[] toWords) {
+        String originalArrayList = String.join(" ", wordsLinkedList);
+        String from = String.join(" ", fromWords);
+        String to = String.join(" ", toWords);
+        String result = originalArrayList.replaceAll("\\b"+from+"\\b", to);
+        wordsLinkedList.clear();
+        for (String word : result.split("\\s+")){
+            wordsLinkedList.add(word);
+        }
         //TODO: check the TheHistory interface for more information
     }
 

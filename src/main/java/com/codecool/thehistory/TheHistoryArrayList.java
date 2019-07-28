@@ -56,6 +56,12 @@ public class TheHistoryArrayList implements TheHistory {
     @Override
     public void replaceMoreWords(String[] fromWords, String[] toWords) {
         //TODO: check the TheHistory interface for more information
+        String originalArrayList = String.join(" ", wordsArrayList);
+        String from = String.join(" ", fromWords);
+        String to = String.join(" ", toWords);
+        String result = originalArrayList.replaceAll("\\b"+from+"\\b", to);
+        wordsArrayList.clear();
+        Collections.addAll(wordsArrayList, result.split("\\s+"));
     }
 
     @Override
