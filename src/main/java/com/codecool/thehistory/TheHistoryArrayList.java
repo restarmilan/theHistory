@@ -1,9 +1,9 @@
 package com.codecool.thehistory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.ListIterator;
 
 public class TheHistoryArrayList implements TheHistory {
     /**
@@ -15,20 +15,13 @@ public class TheHistoryArrayList implements TheHistory {
     public void add(String text) {
         //TODO: check the TheHistory interface for more information
         String[] splitStr = text.split("\\s+");
-        for (String word : splitStr){
-            wordsArrayList.add(word);
-        }
+        wordsArrayList.addAll(Arrays.asList(splitStr));
     }
 
     @Override
     public void removeWord(String wordToBeRemoved) {
         //TODO: check the TheHistory interface for more information
         wordsArrayList.removeIf(wordToBeRemoved::equals);
-//      for (int i =0; i<wordsArrayList.size(); i++){
-//          if (wordsArrayList.get(i).equals(wordToBeRemoved)){
-//              wordsArrayList.remove(i--);
-//          }
-//       }
     }
 
     @Override

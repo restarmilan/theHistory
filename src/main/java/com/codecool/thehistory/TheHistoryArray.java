@@ -1,8 +1,6 @@
 package com.codecool.thehistory;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class TheHistoryArray implements TheHistory {
 
@@ -32,14 +30,6 @@ public class TheHistoryArray implements TheHistory {
         wordsArray = Arrays.stream(wordsArray)
                 .filter(s -> (s != null && s.length() > 0))
                 .toArray(String[]::new);
-
-//        List<String> helperList = new ArrayList<>();
-//        for (String s : wordsArray){
-//            if (s !=null){
-//                helperList.add(s);
-//            }
-//         wordsArray = helperList.toArray(new String[helperList.size()]);
-//        }
     }
 
     @Override

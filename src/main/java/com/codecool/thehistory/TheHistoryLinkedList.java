@@ -1,9 +1,6 @@
 package com.codecool.thehistory;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
+import java.util.*;
 
 public class TheHistoryLinkedList implements TheHistory {
     /**
@@ -54,9 +51,7 @@ public class TheHistoryLinkedList implements TheHistory {
         String to = String.join(" ", toWords);
         String result = originalArrayList.replaceAll("\\b"+from+"\\b", to);
         wordsLinkedList.clear();
-        for (String word : result.split("\\s+")){
-            wordsLinkedList.add(word);
-        }
+        wordsLinkedList.addAll(Arrays.asList(result.split("\\s+")));
         //TODO: check the TheHistory interface for more information
     }
 
